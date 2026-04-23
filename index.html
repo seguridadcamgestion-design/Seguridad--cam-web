@@ -1,131 +1,155 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Cam Gestión | Seguridad Electrónica Corporativa</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #ffffff;
-        }
-        header {
-            background: #020617;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header h1 {
-            font-size: 18px;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .hero h2 {
-            font-size: 36px;
-        }
-        .btn {
-            padding: 12px 20px;
-            margin: 10px;
-            background: #2563eb;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 40px;
-        }
-        .services {
-            padding: 40px;
-            text-align: center;
-        }
-        .services div {
-            margin: 20px 0;
-        }
-        footer {
-            background: #020617;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Cam Gestión</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary:#2563eb;
+    --dark:#020617;
+    --bg:#0f172a;
+    --text:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(2,6,23,0.9);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    z-index:1000;
+}
+nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+}
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    animation:fadeIn 1.2s ease;
+}
+.hero h1{
+    font-size:clamp(2rem,5vw,3.5rem);
+}
+.hero p{
+    margin:15px 0;
+    opacity:0.8;
+}
+.btn{
+    padding:12px 22px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.section{
+    padding:80px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-8px);
+}
+.stats{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+}
+.stats div{
+    margin:20px;
+}
+footer{
+    text-align:center;
+    padding:30px;
+    background:var(--dark);
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+</style>
 </head>
 <body>
-
 <header>
-    <h1>Security Cam Gestión</h1>
+    <h3>Security Cam</h3>
     <nav>
         <a href="#">Inicio</a>
         <a href="#">Soluciones</a>
         <a href="#">Contacto</a>
     </nav>
-</header>
-
-<section class="hero">
-    <h2>Seguridad que protege,<br>tecnología que conecta</h2>
-    <p>Expertos en Seguridad Electrónica Corporativa</p>
-    <button class="btn">Solicitar Asesoría</button>
-    <button class="btn">Ver Soluciones</button>
-</section>
-
-<section class="stats">
+</header><section class="hero">
+    <h1>Seguridad que protege,<br>tecnología que conecta</h1>
+    <p>Expertos en seguridad electrónica corporativa</p>
     <div>
-        <h3>+200</h3>
-        <p>Proyectos</p>
+        <button class="btn btn-primary">Solicitar Asesoría</button>
+        <button class="btn">Ver Soluciones</button>
     </div>
-    <div>
-        <h3>6</h3>
-        <p>Años Exp.</p>
+</section><section class="section">
+    <div class="stats">
+        <div><h2>+200</h2><p>Proyectos</p></div>
+        <div><h2>6</h2><p>Años Exp.</p></div>
+        <div><h2>24/7</h2><p>Soporte</p></div>
     </div>
-    <div>
-        <h3>24/7</h3>
-        <p>Soporte</p>
+</section><section class="section">
+    <h2 style="text-align:center;margin-bottom:40px;">Soluciones</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Videovigilancia</h3>
+            <p>Monitoreo inteligente con analítica avanzada.</p>
+        </div>
+        <div class="card">
+            <h3>Control de Acceso</h3>
+            <p>Sistemas biométricos con trazabilidad total.</p>
+        </div>
+        <div class="card">
+            <h3>Sistemas Integrados</h3>
+            <p>Automatización y alarmas perimetrales.</p>
+        </div>
     </div>
-</section>
-
-<section class="services">
-    <div>
-        <h3>Videovigilancia</h3>
-        <p>Monitoreo inteligente con analítica de vanguardia y acceso remoto total.</p>
-    </div>
-    <div>
-        <h3>Control de Acceso</h3>
-        <p>Sistemas biométricos y gestión de personal con trazabilidad completa.</p>
-    </div>
-    <div>
-        <h3>Sistemas Integrados</h3>
-        <p>Automatización y alarmas de alta precisión para protección perimetral.</p>
-    </div>
-</section>
-
-<section class="services">
-    <h2>Soluciones Integradas</h2>
-    <p>CCTV + ACCESOS + ALARMAS</p>
-    <p>Integramos todas las tecnologías en una sola plataforma centralizada para optimizar la toma de decisiones en tiempo real.</p>
-</section>
-
-<section class="services">
+</section><section class="section" style="text-align:center;">
     <h2>Hablemos de tu proyecto</h2>
-    <p>Contáctanos para un diagnóstico técnico sin costo en la ciudad de Cali.</p>
-    <p><strong>TEL:</strong> 318 273 5655</p>
-    <button class="btn">Enviar Solicitud</button>
-</section>
-
-<footer>
-    SECURITY CAM GESTIÓN © 2026 | Cali, Colombia | Todos los derechos reservados.
-</footer>
-
-</body>
+    <p>Diagnóstico técnico sin costo en Cali</p>
+    <p><strong>318 273 5655</strong></p>
+    <button class="btn btn-primary">Enviar Solicitud</button>
+</section><footer>
+    SECURITY CAM GESTIÓN © 2026 | Colombia
+</footer></body>
 </html>
