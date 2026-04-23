@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Cam Gestión | Seguridad Electrónica Corporativa</title>
+  <meta
+    name="description"
+    content="Expertos en Seguridad Electrónica Corporativa en Cali. Videovigilancia, control de acceso y automatización para empresas."
+  />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111a2e;
+      --card: #16213a;
+      --card-hover: #1b2a49;
+      --primary: #1ec8ff;
+      --primary-dark: #00a3d7;
+      --accent: #7df9c1;
+      --text: #f4f7fb;
+      --muted: #b7c4d9;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      --radius: 18px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(30, 200, 255, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(125, 249, 193, 0.12), transparent 22%),
+        linear-gradient(180deg, #07101d 0%, #0b1220 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 16, 29, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-tag {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #04111d !important;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border: 1px solid rgba(30, 200, 255, 0.35);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: rgba(30, 200, 255, 0.08);
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      margin: 0 0 28px;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #04111d;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .highlight-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .highlight-card strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .highlight-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(22, 33, 58, 0.95), rgba(14, 22, 40, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30, 200, 255, 0.22), transparent 65%);
+    }
+
+    .panel-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      background: rgba(125, 249, 193, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(125, 249, 193, 0.2);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .hero-panel h2 {
+      margin: 0 0 16px;
+      font-size: 1.65rem;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .hero-panel li + li {
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg, rgba(22, 33, 58, 0.92), rgba(15, 25, 44, 0.92));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(180deg, var(--card-hover), rgba(16, 27, 46, 0.98));
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(30, 200, 255, 0.12);
+      border: 1px solid rgba(30, 200, 255, 0.18);
+      font-size: 1.35rem;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .integration {
+      padding-top: 48px;
+    }
+
+    .integration-box {
+      background:
+        radial-gradient(circle at top right, rgba(30, 200, 255, 0.18), transparent 25%),
+        linear-gradient(135deg, rgba(19, 32, 58, 0.96), rgba(11, 20, 35, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .integration-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .integration-pill {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(125, 249, 193, 0.1);
+      border: 1px solid rgba(125, 249, 193, 0.2);
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+
+    .integration-box p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 740px;
+      font-size: 1.02rem;
+    }
+
+    .contact {
+      padding-top: 54px;
+      padding-bottom: 88px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 26px;
+      background: linear-gradient(180deg, rgba(20, 31, 54, 0.94), rgba(11, 20, 36, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-copy h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+    }
+
+    .contact-copy p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .contact-panel {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .contact-panel h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    .contact-panel .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: rgba(3, 8, 15, 0.65);
+    }
+
+    .footer-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-box,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .main-nav {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .service-card,
+      .integration-box,
+      .contact-box,
+      .hero-panel {
+        padding: 22px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <p class="brand-name">Security Cam Gestión</p>
+        <p class="brand-tag">Seguridad Electrónica Corporativa</p>
+      </div>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="nav-cta">Solicitar Asesoría</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Expertos en seguridad electrónica en Cali</span>
+          <h1>Seguridad que protege, tecnología que conecta</h1>
+          <p>
+            Expertos en Seguridad Electrónica Corporativa en Cali.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-primary">Solicitar Asesoría</a>
+            <a href="#soluciones" class="btn btn-secondary">Ver Soluciones</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-card">
+              <strong>Videovigilancia</strong>
+              <span>Monitoreo inteligente 24/7</span>
+            </div>
+            <div class="highlight-card">
+              <strong>Accesos</strong>
+              <span>Gestión biométrica avanzada</span>
+            </div>
+            <div class="highlight-card">
+              <strong>Automatización</strong>
+              <span>Integración centralizada</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Resumen de soluciones">
+          <span class="panel-badge">Soluciones integradas</span>
+          <h2>CCTV + ACCESOS + ALARMAS</h2>
+          <ul>
+            <li>Conectamos todos tus sistemas para una toma de decisiones en tiempo real.</li>
+            <li>Sistemas de monitoreo inteligente con analítica de video y detección de movimiento 24/7.</li>
+            <li>Gestión biométrica y control de personal avanzado para edificios y entornos industriales.</li>
+            <li>Integración total de alarmas, accesos y domótica en una sola plataforma centralizada.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="soluciones">
+      <div class="container">
+        <div class="section-head">
+          <h2>Soluciones</h2>
+          <p>
+            Diseñamos soluciones corporativas para proteger instalaciones, optimizar el control operativo y centralizar la seguridad de tu empresa.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">📹</div>
+            <h3>Videovigilancia</h3>
+            <p>
+              Sistemas de monitoreo inteligente con analítica de video y detección de movimiento 24/7.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🔐</div>
+            <h3>Control de Acceso</h3>
+            <p>
+              Gestión biométrica y control de personal avanzado para edificios y entornos industriales.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">⚙️</div>
+            <h3>Automatización</h3>
+            <p>
+              Integración total de alarmas, accesos y domótica en una sola plataforma centralizada.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="integration">
+      <div class="container">
+        <div class="integration-box">
+          <h2>Soluciones Integradas</h2>
+          <div class="integration-pill">CCTV + ACCESOS + ALARMAS</div>
+          <p>
+            Conectamos todos tus sistemas para una toma de decisiones en tiempo real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-copy">
+            <h2>Hablemos de tu proyecto</h2>
+            <p>
+              Agenda una visita técnica sin costo. Nuestro equipo experto diseñará la solución ideal para tu empresa en Cali.
+            </p>
+
+            <a class="phone" href="tel:+573182735655">
+              <span aria-hidden="true">📞</span>
+              <span>318 273 5655</span>
+            </a>
+          </div>
+
+          <div class="contact-panel">
+            <h3>Solicitar asesoría</h3>
+            <p>
+              Haz clic en el botón para iniciar el contacto con nuestro equipo comercial.
+            </p>
+            <a href="tel:+573182735655" class="btn btn-primary">Enviar Solicitud</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>SECURITY CAM GESTIÓN © 2026 | Cali, Colombia</p>
+    </div>
+  </footer>
+</body>
+</html>
